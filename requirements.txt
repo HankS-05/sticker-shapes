@@ -1,4 +1,5 @@
 numpy
 matplotlib
+ffmpeg
 scipy
 cvxpy
