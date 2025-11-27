@@ -1,6 +1,5 @@
 numpy
 matplotlib
-ffmpeg
 scipy
 cvxpy
 ecos
