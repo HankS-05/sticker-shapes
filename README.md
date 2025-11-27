@@ -22,3 +22,16 @@ One thing I'm not sure about is if you can decompose these nonnegative vectors f
 
 There are comments in the code which should guide you through how to find solutions. The solution class does everything, so you need to create an instance of it with the start, stop, g, num_points, and N you want. g is a paramaterized function and start and stop are values of this parameter (t). N is the number of curves, and num_points is just the number of points in each curve. Once you initialize the class you have to run self.find_solutions() to actually get the solution shapes. This runs through every parity list and every possible stop value. Then self.transform_null_space(parity list, stop) can give you a strictly positive null space for a solution with index (parity list, stop, sign = "mixed") and adds one with index (parity list, stop, sign = "positive"). You can graph a shape with scales from each column in the null space of each (parity list, stop, sign) solution with self.graph_all_solutions(). Then if you want to animate one, use self.animate_solution(parity list, stop, sign, mode, file_name, num_nodes = 3, alpha = 1, frame_num = 200). This picks solution with index (parity list, stop, sign) and goes through columns in the null space either in order, interpolating between (1 -> 2, 2 -> 3, 3 -> 1) if mode = "linear" or by passing through various nodes which take a dirichlet sample of the coefficients of the null space columns if mode = "random".
 
+To save animations this code requires ffmpeg. If using conda, run "conda install -c conda-forge ffmpeg" inside your conda environment.
+Or to install ffmpeg to your system:
+## macOS
+brew install ffmpeg
+
+## Ubuntu/Debian
+sudo apt-get install ffmpeg
+
+## Windows
+Download from https://ffmpeg.org/download.html
+and add ffmpeg/bin to your PATH.
+
+
